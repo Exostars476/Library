@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div (load)="getRecBooks()" class="container-fluid">
+    <div class="row">
+        <div class="container">
+            <h1 style="margin-bottom:20px; font-size:25px;">Livres recommandés</h1>
+            <div id="box-book-recom" class="container-fluid"  style="background-color:white;overflow-y:scroll;height: 430px;">
+                <div class='row' style="margin-left:4%;">
+                    <div *ngFor="let b of book">
+                        <a href="book/detail/{{b.bookRecId}}">
+                            <div class='col-md-3 bookTiles' style='margin-top:20px;'>
+                                <div class='divBookTitle'><span class='bookTitle'>{{b.bookTitle}}</span></div>
+                                <img width="130px" height="170px" src="http://172.16.2.29:8080/Library-Web/resources/{{b.imagePath}}">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

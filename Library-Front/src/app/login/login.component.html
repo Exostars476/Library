@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div style="width:400px; margin-top: 5%;" class="container margin-top">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h1>Connexion</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <form name="loginForm" method="post" action="loginCheck">
+                    <div class="row">
+                        <div class="col-md-5">Login </div>
+                        <div class="col-md-5"><input type='text' name='email' [(ngModel)]="identifiants.email" required></div>
+                    </div>
+                    <div style="margin-top:5px;" class="row">
+                        <div class="col-md-5">Mot de passe </div>
+                        <div class="col-md-5"><input type='password' name='password' [(ngModel)]="identifiants.password" required></div>
+                    </div>
+                    <div style="margin-top:20px;" class="row">
+                        <div style="text-align:center;" class="col-md-12">
+                            <button (click)="login()" class='btn btn-success'>Connexion</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

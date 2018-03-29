@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Liste des membres</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>EMail</th>
+                            <th>Adresse</th>
+                            <th>Tel</th>
+                            <th>Rôle</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenant" *ngFor="let m of members">                    
+                        <tr>
+                            <td>{{m.memberLastName}}</td>
+                            <td>{{m.firstName}}</td>
+                            <td>{{m.email}}</td>
+                            <td>{{m.address}} {{m.postalCode}} {{m.city}}</td>
+                            <td>{{m.phone}}</td>
+                            <td>
+                                <span *ngIf="m.access == 1">Admin</span>
+                                <span *ngIf="m.access == 2">User</span>
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div style="max-width:500px; margin-top: 5%;" class="container margin-top">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1>Ajouter un livre</h1>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <form method="post" action="bookAdd" id="bookAdd" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-5">Titre </div>
+                        <div class="col-md-7"><input type='text' name='title' [(ngModel)]="bookParam.bookTitle" required></div>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div class="col-md-5">Description </div>
+                        <div class="col-md-7"><input type='text' name='description' [(ngModel)]="bookParam.description" required></div>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div class="col-md-5">Prix </div>
+                        <div class="col-md-7"><input type='text' name='price' [(ngModel)]="bookParam.price" required></div>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div class="col-md-5">Date de publication </div>
+                        <div class="col-md-7"><input type='date' name='pubDate' [(ngModel)]="bookParam.pubDate" required></div>
+                    </div>
+                    <div class="form-group row" style="margin-top:10px;">
+                        <div class="col-md-5">Populaire ?</div>
+                        <div class="col-lg-7">
+                            <input type="checkbox" [(ngModel)]="bookParam.popular" name="popular" id="popular" />
+                        </div>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div class="col-md-5">Catégories </div>
+                        <select class="col-md-7" name="c.id" [(ngModel)]='bookParam.categoryId'>
+                            <option *ngFor="let c of categories" [ngValue]="c.id">{{c.name}}</option>
+                        </select>
+                    </div>
+                     <div style="margin-top:10px;" class="row">
+                        <div class="col-md-5">Editor </div>
+                        <select class="col-md-7" name="e.id" [(ngModel)]='bookParam.editorId' style="padding-left:0;">
+                            <option *ngFor="let e of editors" [ngValue]="e.id">{{e.name}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-top:10px;" class="row">
+                        <div class="col-md-5">author</div>
+                        <select class="col-md-7" name="a.id" [(ngModel)]='bookParam.authorsId' multiple>
+                            <option *ngFor="let a of authors" [ngValue]="a.id">{{a.authorLastName}}</option>
+                        </select>
+                    </div>
+                    <div style="margin-top:20px;" class="row">
+                        <div style="text-align:center;" class="col-md-12"> <button (click)="insertBook()" class='btn btn-success'>Inscription</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
